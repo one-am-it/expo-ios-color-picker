@@ -1,0 +1,52 @@
+spec:
+  inputs:
+    node-image:
+      default: 'node:20'
+    prepare-stage:
+      default: 'prepare'
+    check-stage:
+      default: 'check'
+    deploy-stage:
+      default: 'deploy'
+---
+
+stages:
+  - prepare
+  - check
+  - deploy
+
+prepare:
+  image: $[[ inputs.node-image ]]
+  stage: $[[ inputs.prepare-stage ]]
+  script:
+    - npm install --ci
+  artifacts:
+    expire_in: 30 mins
+    paths:
+      - node_modules
+  only:
+    - tags
+    - main
+
+check:
+  image: $[[ inputs.node-image ]]
+  stage: $[[ inputs.check-stage ]]
+  script:
+    - npm run checkTypes
+    - npm run lint
+  when: on_success
+  only:
+    - tags
+    - main
+
+
+# Deploy
+publish:
+  stage: $[[ inputs.deploy-stage ]]
+  image: $[[ inputs.node-image ]]
+  only:
+    - tags
+  script:
+    - echo "@one-am:registry=https://${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/" > .npmrc
+    - echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
+    - npm run release --no-increment --ci --npm.publish true --no-git --gitlab.release true --npm.skipChecks true
