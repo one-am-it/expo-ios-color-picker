@@ -1,50 +1,86 @@
 {
-  "name": "expo-ios-color-picker",
-  "version": "0.1.0",
-  "description": "A module that wraps iOS' native color picker.",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
-  "scripts": {
-    "build": "expo-module build",
-    "clean": "expo-module clean",
-    "lint": "expo-module lint",
-    "test": "expo-module test",
-    "prepare": "expo-module prepare",
-    "prepublishOnly": "expo-module prepublishOnly",
-    "expo-module": "expo-module",
-    "open:ios": "xed example/ios",
-    "open:android": "open -a \"Android Studio\" example/android"
-  },
-  "keywords": [
-    "react-native",
-    "expo",
-    "expo-ios-color-picker",
-    "ExpoIosColorPicker"
-  ],
-  "repository": "https://github.com/one-am-it/expo-ios-color-picker",
-  "bugs": {
-    "url": "https://github.com/one-am-it/expo-ios-color-picker/issues"
-  },
-  "author": "one-am <info@oneam.it> (https://github.com/one-am-it)",
-  "license": "MIT",
-  "homepage": "https://github.com/one-am-it/expo-ios-color-picker#readme",
-  "devDependencies": {
-    "@types/react": "^18.0.25",
-    "expo-module-scripts": "^3.5.2",
-    "expo-modules-core": "^1.12.20",
-    "prettier": "^3.3.3"
-  },
-  "peerDependencies": {
-    "expo": "*",
-    "react": "*",
-    "react-native": "*"
-  },
-  "packageManager": "yarn@1.22.19+sha512.ff4579ab459bb25aa7c0ff75b62acebe576f6084b36aa842971cf250a5d8c6cd3bc9420b22ce63c7f93a0857bc6ef29291db39c3e7a23aab5adfd5a4dd6c5d71",
-  "prettier": {
-    "quoteProps": "consistent",
-    "singleQuote": true,
-    "tabWidth": 4,
-    "trailingComma": "es5",
-    "useTabs": false
-  }
+    "name": "expo-ios-color-picker",
+    "version": "0.1.0",
+    "description": "A module that wraps iOS' native color picker.",
+    "main": "build/index.js",
+    "types": "build/index.d.ts",
+    "scripts": {
+        "build": "expo-module build",
+        "clean": "expo-module clean",
+        "lint": "expo-module lint",
+        "test": "expo-module test",
+        "prepare": "expo-module prepare",
+        "prepublishOnly": "expo-module prepublishOnly",
+        "expo-module": "expo-module",
+        "open:ios": "xed example/ios",
+        "open:android": "open -a \"Android Studio\" example/android",
+        "release": "release-it"
+    },
+    "keywords": [
+        "react-native",
+        "expo",
+        "expo-ios-color-picker",
+        "color picker",
+        "ExpoIosColorPicker"
+    ],
+    "repository": "https://github.com/one-am-it/expo-ios-color-picker",
+    "bugs": {
+        "url": "https://github.com/one-am-it/expo-ios-color-picker/issues"
+    },
+    "author": "one-am <info@oneam.it> (https://github.com/one-am-it)",
+    "license": "MIT",
+    "homepage": "https://github.com/one-am-it/expo-ios-color-picker#readme",
+    "devDependencies": {
+        "@types/react": "^18.0.25",
+        "@release-it/conventional-changelog": "^8.0.1",
+        "expo-module-scripts": "^3.5.2",
+        "expo-modules-core": "^1.12.20",
+        "prettier": "^3.3.3",
+        "@commitlint/config-conventional": "^17.0.2",
+        "@evilmartians/lefthook": "^1.5.0",
+        "commitlint": "^17.0.2",
+        "release-it": "^17.3.0"
+    },
+    "peerDependencies": {
+        "expo": "*",
+        "react": "*",
+        "react-native": "*"
+    },
+    "packageManager": "yarn@1.22.19+sha512.ff4579ab459bb25aa7c0ff75b62acebe576f6084b36aa842971cf250a5d8c6cd3bc9420b22ce63c7f93a0857bc6ef29291db39c3e7a23aab5adfd5a4dd6c5d71",
+    "prettier": {
+        "quoteProps": "consistent",
+        "singleQuote": true,
+        "tabWidth": 4,
+        "trailingComma": "es5",
+        "useTabs": false
+    },
+    "commitlint": {
+        "extends": [
+            "@commitlint/config-conventional"
+        ]
+    },
+    "publishConfig": {
+        "access": "restricted",
+        "registry": "https://git.oneam.it"
+    },
+    "release-it": {
+        "git": {
+            "commitMessage": "chore: release ${version}",
+            "tagName": "v${version}"
+        },
+        "gitlab": {
+            "release": false
+        },
+        "npm": {
+            "publish": false
+        },
+        "github": {
+            "release": false
+        },
+        "plugins": {
+            "@release-it/conventional-changelog": {
+                "preset": "conventionalcommits"
+            }
+        }
+    }
 }
