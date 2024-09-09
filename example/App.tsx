@@ -1,20 +1,30 @@
+import { ExpoIosColorPickerView } from 'expo-ios-color-picker';
 import { StyleSheet, Text, View } from 'react-native';
-
-import * as ExpoIosColorPicker from 'expo-ios-color-picker';
+import { useState } from 'react';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>{ExpoIosColorPicker.hello()}</Text>
-    </View>
-  );
+    const [color, setColor] = useState<string | undefined>(undefined);
+
+    return (
+        <View style={styles.container}>
+            <ExpoIosColorPickerView
+                label={'Colore'}
+                defaultValue={'#FF0000'}
+                style={{ flex: 1 }}
+                onChange={({ nativeEvent: { color } }) => {
+                    setColor(color);
+                }}
+            />
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'stretch',
+        justifyContent: 'center',
+        padding: 20,
+    },
 });
