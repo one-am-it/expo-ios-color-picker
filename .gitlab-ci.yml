@@ -49,4 +49,4 @@ publish:
   script:
     - echo "@one-am:registry=https://${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/" > .npmrc
     - echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
-    - npm run release --no-increment --ci --npm.publish true --no-git --gitlab.release true --npm.skipChecks true
+    - npm run release -- --no-increment --ci --npm.publish true --no-git --gitlab.release true --npm.skipChecks true
