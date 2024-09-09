@@ -24,7 +24,10 @@
         "color picker",
         "ExpoIosColorPicker"
     ],
-    "repository": "https://github.com/one-am-it/expo-ios-color-picker",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/one-am-it/expo-ios-color-picker"
+    },
     "bugs": {
         "url": "https://github.com/one-am-it/expo-ios-color-picker/issues"
     },
@@ -61,8 +64,8 @@
         ]
     },
     "publishConfig": {
-        "access": "restricted",
-        "registry": "https://git.oneam.it"
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
     },
     "release-it": {
         "git": {
