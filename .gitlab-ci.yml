@@ -19,6 +19,7 @@ prepare:
   image: $[[ inputs.node-image ]]
   stage: $[[ inputs.prepare-stage ]]
   script:
+    - apt-get update && apt-get install -y rsync
     - npm install --ci
   artifacts:
     expire_in: 30 mins
