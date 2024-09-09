@@ -48,5 +48,6 @@ publish:
   only:
     - tags
   script:
+    - apt-get update && apt-get install -y rsync
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
     - npm run release -- --no-increment --ci --npm.publish true --no-git
