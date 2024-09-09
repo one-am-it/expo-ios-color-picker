@@ -3,8 +3,8 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "expo-ios-color-picker": ["../src/index"],
-      "expo-ios-color-picker/*": ["../src/*"]
+      "@one-am/expo-ios-color-picker": ["../src/index"],
+      "@one-am/expo-ios-color-picker/*": ["../src/*"]
     }
   }
 }

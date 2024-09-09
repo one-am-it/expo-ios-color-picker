@@ -1,4 +1,4 @@
-import { ExpoIosColorPickerView } from 'expo-ios-color-picker';
+import { ExpoIosColorPickerView } from '@one-am/expo-ios-color-picker';
 import { StyleSheet, Text, View } from 'react-native';
 import { useState } from 'react';
 
