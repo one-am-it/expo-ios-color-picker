@@ -1,8 +1,8 @@
-import { ViewProps } from 'react-native';
+import { ColorValue, ViewProps } from 'react-native';
 
-export type ColorPickerValue = string | undefined;
+export type ColorPickerValue = ColorValue | undefined;
 
-interface ColorChangeEvent {
+export interface ColorChangeEvent {
     nativeEvent: {
         color: ColorPickerValue;
     };
