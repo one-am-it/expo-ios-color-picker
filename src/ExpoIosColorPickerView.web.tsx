@@ -7,7 +7,7 @@ export default function ExpoIosColorPickerView(
 ) {
     return (
         <div>
-            <span>{props.defaultValue}</span>
+            <span>{String(props.defaultValue)}</span>
         </div>
     );
 }
