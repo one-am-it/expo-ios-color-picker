@@ -34,7 +34,7 @@ You also need to set the iOS deployment target to 14.0 or higher in your `app.js
 
 ```tsx
 import {
-    ExpoIosColorPickerView,
+    ExpoIosColorPicker,
     type ColorPickerValue,
 } from '@one-am/expo-ios-color-picker';
 import { useState } from 'react';
@@ -49,8 +49,8 @@ export default function App() {
                 Selected color:{' '}
                 <Text style={{ fontWeight: 'bold' }}>{String(color)}</Text>
             </Text>
-            <ExpoIosColorPickerView
-                label={'Colore'}
+            <ExpoIosColorPicker
+                label={'Color'}
                 defaultValue={'rgba(255, 0, 0, 1)'}
                 style={{ height: 100 }}
                 onChange={({ nativeEvent: { color } }) => {

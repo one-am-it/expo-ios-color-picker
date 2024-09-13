@@ -5,9 +5,9 @@ extension Color {
         // Trim any non-alphanumeric characters from the string
         var hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         
-        // Ensure the hex code is either 6 or 8 characters (RGB or ARGB)
+        // Ensure the hex code is either 6 or 8 characters (RGB or RGBA)
         if hex.count == 6 {
-            hex = "FF" + hex // Add alpha value if missing (default to fully opaque)
+            hex = hex + "FF" // Add alpha value if missing (default to fully opaque)
         }
         
         guard hex.count == 8, let int = UInt64(hex, radix: 16) else {
@@ -15,10 +15,10 @@ extension Color {
         }
         
         let a, r, g, b: Double
-        a = Double((int >> 24) & 0xff) / 255.0
-        r = Double((int >> 16) & 0xff) / 255.0
-        g = Double((int >> 8) & 0xff) / 255.0
-        b = Double(int & 0xff) / 255.0
+        r = Double((int >> 24) & 0xff) / 255.0
+        g = Double((int >> 16) & 0xff) / 255.0
+        b = Double((int >> 8) & 0xff) / 255.0
+        a = Double(int & 0xff) / 255.0
         
         print("Values")
         print(a, r, g, b)

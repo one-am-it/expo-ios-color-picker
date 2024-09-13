@@ -16,7 +16,7 @@ export default function App() {
             </Text>
             <ExpoIosColorPicker
                 label={'Colore'}
-                defaultValue={'#fff00055'}
+                defaultValue={'#ff000055'}
                 style={{ height: 100 }}
                 onChange={({ nativeEvent: { color } }) => {
                     setColor(color);
