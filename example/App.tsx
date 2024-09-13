@@ -1,5 +1,5 @@
 import {
-    ExpoIosColorPickerView,
+    ExpoIosColorPicker,
     type ColorPickerValue,
 } from '@one-am/expo-ios-color-picker';
 import { useState } from 'react';
@@ -14,9 +14,9 @@ export default function App() {
                 Selected color:{' '}
                 <Text style={{ fontWeight: 'bold' }}>{String(color)}</Text>
             </Text>
-            <ExpoIosColorPickerView
+            <ExpoIosColorPicker
                 label={'Colore'}
-                defaultValue={'rgba(255, 0, 0, 1)'}
+                defaultValue={'#fff00055'}
                 style={{ height: 100 }}
                 onChange={({ nativeEvent: { color } }) => {
                     setColor(color);

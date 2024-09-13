@@ -8,7 +8,26 @@ On Android, this module will do nothing.**
 ## Installation
 
 ```bash
-npx expo install @one-am/expo-ios-color-picker
+npx expo install @one-am/expo-ios-color-picker expo-build-properties
+```
+
+You also need to set the iOS deployment target to 14.0 or higher in your `app.json`:
+
+```json
+{
+    "expo": {
+      "plugins": [
+        [
+          "expo-build-properties",
+          {
+            "ios": {
+              "deploymentTarget": "14.0"
+            }
+          }
+        ]
+      ]
+    }
+}
 ```
 
 ## Sample Usage

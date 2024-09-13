@@ -1,12 +1,12 @@
 import { requireNativeViewManager } from 'expo-modules-core';
 import * as React from 'react';
+import { useMemo } from 'react';
 
 import {
     ExpoIosColorPickerViewActualProps,
     ExpoIosColorPickerViewProps,
 } from './ExpoIosColorPicker.types';
 import { colorValueToHex } from './utils/colorValueToHex';
-import { useMemo } from 'react';
 
 const NativeView: React.ComponentType<ExpoIosColorPickerViewActualProps> =
     requireNativeViewManager('ExpoIosColorPicker');
